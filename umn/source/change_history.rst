@@ -8,9 +8,13 @@ Change History
 +-----------------------------------+-------------------------------------------------------------------------------------+
 | Released On                       | Description                                                                         |
 +===================================+=====================================================================================+
+| 2024-09-24                        | This issue is the fourth official release, which incorporates the following change: |
+|                                   |                                                                                     |
+|                                   | -  Optimized some descriptions.                                                     |
++-----------------------------------+-------------------------------------------------------------------------------------+
 | 2023-05-05                        | This issue is the third official release, which incorporates the following change:  |
 |                                   |                                                                                     |
-|                                   | Modified the description in :ref:`EVS Encryption <evs_01_0001>`.                    |
+|                                   | -  Add descriptions about EVS encryption.                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------+
 | 2022-08-30                        | This issue is the second official release, which incorporates the following change: |
 |                                   |                                                                                     |
