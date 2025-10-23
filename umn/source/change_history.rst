@@ -8,6 +8,10 @@ Change History
 +-----------------------------------+-------------------------------------------------------------------------------------+
 | Released On                       | Description                                                                         |
 +===================================+=====================================================================================+
+| 2024-10-20                        | This issue is the fifth official release, which incorporates the following change:  |
+|                                   |                                                                                     |
+|                                   | -  Optimized some descriptions.                                                     |
++-----------------------------------+-------------------------------------------------------------------------------------+
 | 2024-09-24                        | This issue is the fourth official release, which incorporates the following change: |
 |                                   |                                                                                     |
 |                                   | -  Optimized some descriptions.                                                     |
