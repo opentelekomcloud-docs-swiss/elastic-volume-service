@@ -13,6 +13,7 @@ Capacity Expansion
 -  :ref:`What Should I Do If My Disk Capacity Exceeds 2 TiB After Expansion? <evs_faq_0024>`
 -  :ref:`Why Did My Disk Capacity Remain Unchanged on the Server After Capacity Expansion? <evs_faq_0027>`
 -  :ref:`How Do I Extend the File System of an Unpartitioned Data Disk in Linux? <evs_faq_0073>`
+-  :ref:`How Do I View the Disk Partition Style in Linux? <evs_faq_0131>`
 
 .. toctree::
    :maxdepth: 1
@@ -26,3 +27,4 @@ Capacity Expansion
    what_should_i_do_if_my_disk_capacity_exceeds_2_tib_after_expansion
    why_did_my_disk_capacity_remain_unchanged_on_the_server_after_capacity_expansion
    how_do_i_extend_the_file_system_of_an_unpartitioned_data_disk_in_linux
+   how_do_i_view_the_disk_partition_style_in_linux
