@@ -1,31 +1,40 @@
-:original_name: evs_01_0057.html
+:original_name: evs_01_0201.html
 
-.. _evs_01_0057:
+.. _evs_01_0201:
 
 Process Overview
 ================
 
-:ref:`Figure 1 <evs_01_0057__evs_01_0120_fig609407314853>` shows the EVS process overview.
+:ref:`Figure 1 <evs_01_0201__en-us_topic_0129833436_en-us_topic_0044524685_fig609407314853>` shows the process for using EVS.
 
-.. _evs_01_0057__evs_01_0120_fig609407314853:
+.. _evs_01_0201__en-us_topic_0129833436_en-us_topic_0044524685_fig609407314853:
 
-.. figure:: /_static/images/en-us_image_0129867556.png
+.. figure:: /_static/images/en-us_image_0000002052020269.png
    :alt: **Figure 1** Process overview
 
    **Figure 1** Process overview
 
-#. Set the disk type, capacity, and name. For more information, see :ref:`Create an EVS Disk <en-us_topic_0021738346>`.
-#. Attach the separately created disk to a server. For more information, see the following sections:
+:ref:`Figure 2 <evs_01_0201__en-us_topic_0129833436_fig246782441513>` shows how to purchase a data disk separately.
+
+.. _evs_01_0201__en-us_topic_0129833436_fig246782441513:
+
+.. figure:: /_static/images/en-us_image_0000002052179349.png
+   :alt: **Figure 2** Process overview
+
+   **Figure 2** Process overview
+
+#. **Make preparations**: Register an account on the console and obtain permissions required for creating ECSs and EVS disks.
+#. **Create an EVS disk**: Configure the disk parameters, including the disk type, capacity, name, and other information by referring to :ref:`Creating an EVS Disk <en-us_topic_0021738346>`.
+#. **Attach the data disk.** Attach the separately created disk to an ECS. For details, see the following sections:
 
    -  :ref:`Attaching a Non-Shared Disk <evs_01_0036>`
    -  :ref:`Attaching a Shared Disk <evs_01_0037>`
 
-#. A disk cannot be used right away after being attached to a server. You must log in to the server and initialize the disk. For more information, see the following sections:
+#. **Initialize the data disk**: After the data disk is attached, log in to the ECS and initialize the disk before using it. For details about the initialization scenarios and how to initialize the disk, see the following sections:
 
    -  :ref:`Introduction to Data Disk Initialization Scenarios and Partition Styles <evs_01_0038>`
    -  Windows
 
-      -  :ref:`Initializing a Windows Data Disk (Windows Server 2008) <evs_01_0108>`
       -  :ref:`Initializing a Windows Data Disk (Windows Server 2019) <evs_01_0045>`
 
    -  Linux

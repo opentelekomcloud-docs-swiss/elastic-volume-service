@@ -5,21 +5,21 @@ Elastic Volume Service - User Guide
 .. toctree::
    :maxdepth: 1
 
-   overview/index
+   service_overview/index
    getting_started/index
    permissions_management/index
-   disk_capacity_expansion/index
-   detaching_an_evs_disk/index
-   deleting_evs_disks
+   creating_and_using_an_evs_disk
+   attaching_an_existing_evs_disk/index
+   expanding_evs_disk_capacity/index
+   detaching_and_deleting_an_evs_disk/index
+   managing_evs_snapshots/index
    managing_encrypted_evs_disks
    managing_shared_evs_disks
-   managing_evs_backups
-   managing_evs_snapshots/index
+   managing_evs_disk_backups
    managing_evs_transfers
-   managing_a_tag/index
-   viewing_evs_monitoring_data
-   viewing_evs_monitoring_data_agent_installed_and_simplified_monitoring_metrics_used
-   managing_quotas/index
+   managing_evs_tags/index
+   managing_evs_quotas/index
+   cloud_eye_monitoring/index
    faq/index
    appendix/index
    change_history
