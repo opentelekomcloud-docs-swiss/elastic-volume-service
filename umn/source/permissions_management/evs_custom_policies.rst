@@ -5,11 +5,17 @@
 EVS Custom Policies
 ===================
 
-Custom policies can be created to supplement the system-defined policies of EVS. For the actions supported for custom policies, see section "Permissions Policies and Supported Actions" in the *Elastic Volume Service API Reference*.
+You can create custom policies to supplement the system-defined policies of EVS. For the actions supported for custom policies, see section "Permissions Policies and Supported Actions" in the *Elastic Volume Service API Reference*.
 
 You can create custom policies in either of the following ways:
 
 -  Visual editor: Select cloud services, actions, resources, and request conditions. This does not require knowledge of policy syntax.
+
+
+   .. figure:: /_static/images/en-us_image_0000002470571868.png
+      :alt: **Figure 1** Create Custom Policy
+
+      **Figure 1** Create Custom Policy
 
 -  JSON: Edit JSON policies from scratch or based on an existing policy.
 
