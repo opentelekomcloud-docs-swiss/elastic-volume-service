@@ -16,3 +16,5 @@ APIs (Recommended)
    evs_disk/index
    evs_snapshot/index
    evs_tag/index
+   standard_snapshot_management/index
+   standard_snapshot_tag_management/index
