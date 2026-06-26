@@ -8,6 +8,14 @@ Change History
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------+
 | Released On                       | Description                                                                                                          |
 +===================================+======================================================================================================================+
+| 2026-05-28                        | Updated the following content:                                                                                       |
+|                                   |                                                                                                                      |
+|                                   | Optimized some descriptions.                                                                                         |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------+
+| 2025-12-10                        | Updated the following content:                                                                                       |
+|                                   |                                                                                                                      |
+|                                   | -  Added content on calculating the standard snapshot storage usage and checking standard snapshots.                 |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------+
 | 2025-04-14                        | Updated the following content:                                                                                       |
 |                                   |                                                                                                                      |
 |                                   | -  Optimized document descriptions to improve reading experience.                                                    |
@@ -19,15 +27,15 @@ Change History
 |                                   | -  Optimized the tag rules.                                                                                          |
 |                                   | -  Optimized the section names and content of the user guide.                                                        |
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| 2024-09-24                        | This issue is the fourth official release, which incorporates the following change:                                  |
+| 2024-09-24                        | Updated the following content:                                                                                       |
 |                                   |                                                                                                                      |
 |                                   | Optimized some descriptions.                                                                                         |
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| 2023-05-05                        | This issue is the third official release, which incorporates the following change:                                   |
+| 2023-05-05                        | Updated the following content:                                                                                       |
 |                                   |                                                                                                                      |
 |                                   | Add descriptions about EVS encryption.                                                                               |
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| 2022-08-30                        | This issue is the second official release, which incorporates the following change:                                  |
+| 2022-08-30                        | Updated the following content:                                                                                       |
 |                                   |                                                                                                                      |
 |                                   | Added support for the EVS encryption function.                                                                       |
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------+
