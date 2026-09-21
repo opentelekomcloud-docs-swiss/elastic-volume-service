@@ -8,6 +8,7 @@ Using EVS Snapshots
 -  :ref:`Creating an EVS Snapshot <evs_01_2721>`
 -  :ref:`Rolling Back Disk Data from a Snapshot <evs_01_0012>`
 -  :ref:`Creating a Disk from a Snapshot <evs_01_0013>`
+-  :ref:`Checking the EVS Snapshot Storage Usage <evs_01_2712>`
 -  :ref:`Checking EVS Snapshot Details <evs_01_0122>`
 -  :ref:`Deleting an EVS Snapshot <evs_01_0011>`
 
@@ -18,5 +19,6 @@ Using EVS Snapshots
    creating_an_evs_snapshot
    rolling_back_disk_data_from_a_snapshot
    creating_a_disk_from_a_snapshot
+   checking_the_evs_snapshot_storage_usage
    checking_evs_snapshot_details
    deleting_an_evs_snapshot

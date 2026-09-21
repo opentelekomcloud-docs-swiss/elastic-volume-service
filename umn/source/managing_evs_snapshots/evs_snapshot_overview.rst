@@ -26,23 +26,25 @@ Currently, there are standard snapshots and legacy snapshots. :ref:`Table 1 <evs
 
 .. table:: **Table 2** Snapshot-related operations
 
-   +--------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------+
-   | Operation                      | Description                                                                                                                     | Reference                                                   |
-   +================================+=================================================================================================================================+=============================================================+
-   | Creating snapshots             | You can create a snapshot to save the disk data at a specified time.                                                            | :ref:`Creating an EVS Snapshot <evs_01_2721>`               |
-   |                                |                                                                                                                                 |                                                             |
-   |                                | .. note::                                                                                                                       |                                                             |
-   |                                |                                                                                                                                 |                                                             |
-   |                                |    Snapshots are read-only. After snapshots are created, data in the snapshots cannot be modified.                              |                                                             |
-   +--------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------+
-   | Rolling back data              | If data on a disk is incorrect or damaged, you can roll back data from a snapshot to the source disk.                           | :ref:`Rolling Back Disk Data from a Snapshot <evs_01_0012>` |
-   +--------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------+
-   | Creating disks from a snapshot | You can create disks from a snapshot to quickly copy the snapshot data to disks.                                                | :ref:`Creating a Disk from a Snapshot <evs_01_0013>`        |
-   +--------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------+
-   | Checking snapshot information  | You can check the snapshot details, including the region and AZ, source disk information, and tags.                             | :ref:`Checking EVS Snapshot Details <evs_01_0122>`          |
-   +--------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------+
-   | Deleting snapshots             | If you no longer require certain snapshots or the snapshot quantity reaches the maximum allowed, you can delete some snapshots. | :ref:`Deleting an EVS Snapshot <evs_01_0011>`               |
-   +--------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------+
+   +--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------+
+   | Operation                      | Description                                                                                                                                                                                                       | Reference                                                    |
+   +================================+===================================================================================================================================================================================================================+==============================================================+
+   | Creating snapshots             | You can create a snapshot to save the disk data at a specified time.                                                                                                                                              | :ref:`Creating an EVS Snapshot <evs_01_2721>`                |
+   |                                |                                                                                                                                                                                                                   |                                                              |
+   |                                | .. note::                                                                                                                                                                                                         |                                                              |
+   |                                |                                                                                                                                                                                                                   |                                                              |
+   |                                |    Snapshots are read-only. After snapshots are created, data in the snapshots cannot be modified.                                                                                                                |                                                              |
+   +--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------+
+   | Rolling back data              | If data on a disk is incorrect or damaged, you can roll back data from a snapshot to the source disk.                                                                                                             | :ref:`Rolling Back Disk Data from a Snapshot <evs_01_0012>`  |
+   +--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------+
+   | Creating disks from a snapshot | You can create disks from a snapshot to quickly copy the snapshot data to disks.                                                                                                                                  | :ref:`Creating a Disk from a Snapshot <evs_01_0013>`         |
+   +--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------+
+   | Checking snapshot information  | You can check the storage used by all snapshots of an EVS disk, the total storage used by all snapshots in a specified period, and the total storage used by all snapshots of your account in a specified region. | :ref:`Checking the EVS Snapshot Storage Usage <evs_01_2712>` |
+   |                                |                                                                                                                                                                                                                   |                                                              |
+   |                                | You can check the snapshot details, including the region and AZ, source disk information, and tags.                                                                                                               | :ref:`Checking EVS Snapshot Details <evs_01_0122>`           |
+   +--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------+
+   | Deleting snapshots             | If you no longer require certain snapshots or the snapshot quantity reaches the maximum allowed, you can delete some snapshots.                                                                                   | :ref:`Deleting an EVS Snapshot <evs_01_0011>`                |
+   +--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------+
 
 Snapshot Usage Scenarios
 ------------------------
@@ -110,6 +112,79 @@ Let's use the preceding figure for illustration. Assume that data was written to
 -  At 09:00, snapshot 1 was created for the disk. This was the first time that a snapshot was created for this disk, so snapshot 1 was a full snapshot and it contained all the data on the disk, including data blocks A, B, and C. The metadata file of snapshot 1 recorded information about the disk's full data blocks: A, B, and C.
 -  After snapshot 1 was created, data block A was changed to A1, data block B was changed to B1, and data block D was added. Then, snapshot 2 was created at 10:00. It was an incremental snapshot. Compared with snapshot 1, data blocks A1, B1, and D were changed data blocks. The metadata file of snapshot 2 recorded information about the disk's full data blocks: A1, B1, C, and D, among which data block C was inherited from snapshot 1.
 -  After snapshot 2 was created, data block A1 was changed to A2, data block C was changed to C1, and data block E was added. Then, snapshot 3 was created at 11:00. It was an incremental snapshot. Compared with snapshot 2, data blocks A2, C1, and E were changed data blocks. The metadata file of snapshot 3 recorded information about the disk's full data blocks: A2, B1, C1, D, and E, among which data blocks B1 and D were inherited from snapshot 2.
+
+.. _evs_01_0098__en-us_topic_0197597144_section292714335117:
+
+Calculating the Standard Snapshot Storage Usage
+-----------------------------------------------
+
+The total snapshot storage usage of an EVS disk is calculated by snapshot chain. A snapshot chain collects the storage space used by data blocks of all the snapshots of a disk. The storage usage of a single snapshot will not be greater than the disk capacity. As more snapshots are created for the disk, the storage usage of the snapshot chain may be greater than the disk capacity.
+
+-  **Snapshot chain's storage usage calculation after snapshots are added**
+
+   .. _evs_01_0098__en-us_topic_0197597144_en-us_topic_0066809008_fig18730151114539:
+
+   .. figure:: /_static/images/en-us_image_0000002312239849.png
+      :alt: **Figure 3** Snapshot chain with snapshots added
+
+      **Figure 3** Snapshot chain with snapshots added
+
+   Take the scenario in :ref:`Figure 3 <evs_01_0098__en-us_topic_0197597144_en-us_topic_0066809008_fig18730151114539>` as an example. Assume that the size of a snapshot's data block is fixed at 2 MiB. The snapshot chain's storage usage is calculated as follows:
+
+   -  After snapshot 1 is created, the snapshot chain of the disk contains only one snapshot. Snapshot chain's storage usage = Snapshot 1's storage usage = Size of data block A + Size of data block B + Size of data block C = 6 MiB
+   -  After snapshot 2 is created, the snapshot chain of the disk contains two snapshots: snapshot 1 and snapshot 2. Snapshot chain's storage usage = Snapshot 1's storage usage + Snapshot 2' storage usage = 6 MiB + (Size of data block A1 + Size of data block B1 + Size of data block D) = 12 MiB
+   -  After snapshot 3 is created, the snapshot chain of the disk contains three snapshots: snapshot 1, snapshot 2, and snapshot 3. Snapshot chain's storage usage = Snapshot 1's storage usage + Snapshot 2' storage usage + Snapshot 3's storage usage = 6 MiB + 6 MiB + (Size of data block A2 + Size of data block C1 + Size of data block E) = 18 MiB
+
+-  **Snapshot chain's storage usage calculation after snapshots are deleted**
+
+   When a snapshot is deleted, all data block information in this snapshot's metadata file is traversed, and the following deletion rules are applied:
+
+   -  If a data block is inherited by the next snapshot, it will not be deleted.
+   -  If a data block is not inherited by the next snapshot:
+
+      -  For an inherited data block, if the previous snapshot that the data block is inherited from is not deleted, the data block will not be deleted. Otherwise, it will be deleted.
+      -  For a modified data block, it will be deleted.
+      -  For a new data block, it will be deleted.
+
+
+   .. figure:: /_static/images/en-us_image_0000002277640202.png
+      :alt: **Figure 4** Snapshot data block deletion rules
+
+      **Figure 4** Snapshot data block deletion rules
+
+   The following example describes how to calculate a snapshot chain's storage usage after snapshots are deleted.
+
+   .. _evs_01_0098__en-us_topic_0197597144_en-us_topic_0066809008_fig9261134113584:
+
+   .. figure:: /_static/images/en-us_image_0000002277743340.png
+      :alt: **Figure 5** Snapshot chain with snapshots deleted
+
+      **Figure 5** Snapshot chain with snapshots deleted
+
+   Take the scenario in :ref:`Figure 5 <evs_01_0098__en-us_topic_0197597144_en-us_topic_0066809008_fig9261134113584>` as an example. Assume that snapshot 2 is deleted at 14:00 and snapshot 3 is deleted at 15:00. The snapshot chain's storage usage is calculated as follows:
+
+   -  Before any snapshot is deleted, the snapshot chain's storage usage is 18 MiB (Snapshot 1's storage usage + Snapshot 2's storage usage + Snapshot 3's storage usage).
+
+   -  When snapshot 2 is deleted at 14:00, information about all data blocks in the metadata file of snapshot 2 is traversed.
+
+      -  Data block A1: It is not inherited by snapshot 3 and is modified from data block A of snapshot 1. So, data block A1 will be deleted.
+      -  Data block B1: It is inherited by snapshot 3, so it will not be deleted.
+      -  Data block C: It is not inherited by snapshot 3, but is inherited from snapshot 1 and snapshot 1 is not deleted. So, data block C will not be deleted.
+      -  Data block D: It is inherited by snapshot 3. So, it will not be deleted.
+
+      After snapshot 2 is deleted, the snapshot chain's storage usage is 16 MiB (18 MiB - Size of data block A1).
+
+   -  When snapshot 3 is deleted at 15:00, information about all data blocks in the metadata file of snapshot 3 is traversed.
+
+      -  Data block A2: It is not inherited by the next snapshot and is modified from data block A1 of snapshot 2. So, data block A2 will be deleted.
+      -  Data block B1: It is not inherited by the next snapshot, but is inherited from snapshot 2 and snapshot 2 has been deleted. So, data block B1 will be deleted.
+      -  Data block C1: It is not inherited by the next snapshot and is modified from data block C of snapshot 2. So, data block C1 will be deleted.
+      -  Data block D: It is not inherited by the next snapshot, but is inherited from snapshot 2 and snapshot 2 has been deleted. So, data block D will be deleted.
+      -  Data block E: It is not inherited by the next snapshot and is newly added in snapshot 3. So, data block E will be deleted.
+
+      After snapshot 3 is deleted, the snapshot chain's storage usage is 6 MiB (16 MiB - Size of data block A2 - Size of data block B1 - Size of data block C1 - Size of data block D - Size of data block E).
+
+EVS allows you to view the snapshot storage usage on the console. For details, see :ref:`Checking the EVS Snapshot Storage Usage <evs_01_2712>`.
 
 Differences Between Disk Backups and Disk Snapshots
 ---------------------------------------------------
